@@ -55,9 +55,6 @@ export const Deck = ({ deck, deckId }) => {
           <Route path={`${url}/${deckId}`}>
             <DeckProfileMain deck={deck} />
           </Route>
-          <Route path={`/decks/${deckId}/study`}>
-            <StudyCardsMain deckId={deckId} deck={deck} />
-          </Route>
         </Switch>
       </div>
     </article>
