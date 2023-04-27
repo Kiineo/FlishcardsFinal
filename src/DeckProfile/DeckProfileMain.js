@@ -86,7 +86,7 @@ export const DeckProfileMain = (Decks) => {
 //     //   let frontCard = response.front;
 //     //   let backCard = response.back;
 //     // });
-// return(
+return(
         <div key={idx}>
           <div class="card" style={{ width: 1000 }}>
             <div class="row">
@@ -99,7 +99,7 @@ export const DeckProfileMain = (Decks) => {
           </NavLink>
           <button onClick={() => deleteCardHandler(cardId)}>Delete</button>
         </div>
-    // );
+    );
   });
 
   return (
