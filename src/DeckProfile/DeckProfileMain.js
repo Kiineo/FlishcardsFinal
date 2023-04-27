@@ -15,7 +15,7 @@ import { deleteCard } from "../utils/api/index";
 import { deleteDeck } from "../utils/api/index";
 import { readCard } from "../utils/api/index";
 
-export const StudyCardsMain = (Decks) => {
+export const DeckProfileMain = (Decks) => {
   // const history = useHistory();
   // const { deckId } = useParams();
   // const { url } = useRouteMatch();
@@ -80,29 +80,26 @@ export const StudyCardsMain = (Decks) => {
   }
 
   const cardForm = Cards.map((v, idx) => {
-    let cardId = v.id;
-    // readCard(cardId).then((response) => {
-    //   let frontCard = response.front;
-    //   let backCard = response.back;
-    // });
-
-    let Card = (
-      <React.Fragment>
-        <div key = {cardId}>
-        <div class="card" style={{ width: 1000 }}>
-          <div class="row">
-            <div class="column card-body">{v.front}</div>
-            <div class="column card-body">{v.back}</div>
+    // let key = v.id;
+    // let cardId = v.id;
+//     // readCard(cardId).then((response) => {
+//     //   let frontCard = response.front;
+//     //   let backCard = response.back;
+//     // });
+// return(
+        <div key={idx}>
+          <div class="card" style={{ width: 1000 }}>
+            <div class="row">
+              <div class="column card-body">{v.front}</div>
+              <div class="column card-body">{v.back}</div>
+            </div>
           </div>
+          <NavLink to={`/decks/${deckId}/cards/${cardId}/edit`}>
+            <button class> Edit </button>
+          </NavLink>
+          <button onClick={() => deleteCardHandler(cardId)}>Delete</button>
         </div>
-        <NavLink to={`/decks/${deckId}/cards/${cardId}/edit`}>
-          <button class> Edit </button>
-        </NavLink>
-        <button onClick={() => deleteCardHandler(cardId)}>Delete</button>
-        </div>
-      </React.Fragment>
-    );
-    return Card;
+    // );
   });
 
   return (
@@ -136,4 +133,4 @@ export const StudyCardsMain = (Decks) => {
   );
 };
 
-export default StudyCardsMain;
+export default DeckProfileMain;
