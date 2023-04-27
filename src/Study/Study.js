@@ -6,6 +6,7 @@ import {
   Link,
   Switch,
   useHistory,
+  NavLink,
   useLocation,
   useRouteMatch,
   useParams,
@@ -33,11 +34,13 @@ function Study() {
       setShow(!show);
     } else {
       setSide(true);
+      setShow(!show);
     }
   }
 
   function nextHandler() {
     setCardIndex(cardIndex + 1);
+    setSide(true);
     setShow(!show);
     if (cardIndex >= deck.cards.length - 1) {
       if (
@@ -89,7 +92,9 @@ function Study() {
               cards in this deck.
             </p>
 
-            <button onClick={addBtnHandler}>+ Add Cards</button>
+            <NavLink to={`/decks/${deckId}/cards/new`}>
+              <button> + Add Cards </button>
+            </NavLink>
           </div>
         </div>
       </div>
